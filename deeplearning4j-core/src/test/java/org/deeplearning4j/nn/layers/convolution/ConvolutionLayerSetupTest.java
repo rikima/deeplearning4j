@@ -124,7 +124,7 @@ public class ConvolutionLayerSetupTest {
 
 
 
-    @Test
+    //@Test
     public void testMultiChannel() throws Exception {
         //ensure LFW data set is present
         List<String> labels = new ArrayList<>(Arrays.asList("Zico", "Ziwang_Xu"));

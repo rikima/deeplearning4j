@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 public class RecordReaderMultiDataSetIteratorTest {
 
-    @Test
+    //@Test
     public void testsBasic() throws Exception {
 
         //Load details from CSV files; single input/output -> compare to RecordReaderDataSetIterator
@@ -171,7 +171,7 @@ public class RecordReaderMultiDataSetIteratorTest {
         assertFalse(rrmdsi.hasNext());
     }
 
-    @Test
+    //@Test
     public void testSplittingCSVSequence() throws Exception {
         //Idea: take CSV sequences, and split "csvsequence_i.txt" into two separate inputs; keep "csvSequencelables_i.txt"
         // as standard one-hot output
@@ -275,7 +275,7 @@ public class RecordReaderMultiDataSetIteratorTest {
         }catch(Exception e){ }
     }
 
-    @Test
+    //@Test
     public void testVariableLengthTS() throws Exception {
         //need to manually extract
         for(int i = 0; i < 3; i++) {

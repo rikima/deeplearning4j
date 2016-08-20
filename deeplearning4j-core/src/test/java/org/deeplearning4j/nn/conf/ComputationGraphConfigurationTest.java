@@ -190,7 +190,7 @@ public class ComputationGraphConfigurationTest {
     }
 
 
-    @Test
+    //@Test
     public void testConfigurationWithRuntimeJSONSubtypes(){
         //Idea: suppose someone wants to use a ComputationGraph with a custom GraphVertex
         // (i.e., one not built into DL4J). Check that this works for JSON serialization

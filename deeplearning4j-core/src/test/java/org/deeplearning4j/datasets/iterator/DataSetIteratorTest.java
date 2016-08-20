@@ -39,7 +39,7 @@ import static org.junit.Assert.*;
 
 public class DataSetIteratorTest {
 	
-	@Test
+	//@Test
 	public void testBatchSizeOfOne() throws Exception {
 		//Test for (a) iterators returning correct number of examples, and
 		//(b) Labels are a proper one-hot vector (i.e., sum is 1.0)

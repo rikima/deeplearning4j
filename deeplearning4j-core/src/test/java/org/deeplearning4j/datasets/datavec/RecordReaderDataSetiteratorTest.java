@@ -60,7 +60,7 @@ public class RecordReaderDataSetiteratorTest {
     }
 
 
-    @Test
+    //@Test
     public void testRecordReaderMaxBatchLimit() throws Exception {
         RecordReader recordReader = new CSVRecordReader();
         FileSplit csv = new FileSplit(new ClassPathResource("csv-example.csv").getTempFileFromArchive());
@@ -71,7 +71,7 @@ public class RecordReaderDataSetiteratorTest {
         assertEquals(false, iter.hasNext());
     }
 
-    @Test
+    //@Test
     public void testRecordReaderMultiRegression() throws Exception {
 
         RecordReader csv = new CSVRecordReader();
@@ -108,7 +108,7 @@ public class RecordReaderDataSetiteratorTest {
 
     }
 
-    @Test
+    //@Test
     public void testSequenceRecordReader() throws Exception {
         //need to manually extract
         for(int i = 0; i < 3; i++) {
@@ -194,7 +194,7 @@ public class RecordReaderDataSetiteratorTest {
         assertEquals(dsList.get(2).getLabels(), expL2);
     }
 
-    @Test
+    //@Test
     public void testSequenceRecordReaderRegression() throws Exception{
         //need to manually extract
         for(int i = 0; i < 3; i++) {
@@ -254,7 +254,7 @@ public class RecordReaderDataSetiteratorTest {
         assertEquals(3,count);
     }
 
-    @Test
+    //@Test
     public void testSequenceRecordReaderReset() throws Exception {
         //need to manually extract
         for(int i = 0; i < 3; i++) {
@@ -361,7 +361,7 @@ public class RecordReaderDataSetiteratorTest {
         return dArr;
     }
 
-    @Test
+   // @Test
     public void testVariableLengthSequence() throws Exception{
         //need to manually extract
         for(int i = 0; i < 3; i++) {
@@ -520,7 +520,8 @@ public class RecordReaderDataSetiteratorTest {
         }
     }
 
-    @Test
+    //
+    // @Test
     public void testSequenceRecordReaderSingleReader() throws Exception{
         //need to manually extract
         for(int i = 0; i < 3; i++) {

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class LocalUnstructuredDataFormatterTest {
 
-    @Test
+    //@Test
     public void testRearrange() throws Exception {
         //ensure exists
         new LFWDataSetIterator(new int[] {28,28,3}).next();
