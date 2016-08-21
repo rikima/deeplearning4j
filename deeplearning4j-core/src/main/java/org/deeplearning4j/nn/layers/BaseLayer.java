@@ -50,6 +50,8 @@ import java.util.*;
 public abstract class BaseLayer<LayerConfT extends org.deeplearning4j.nn.conf.layers.Layer>
         implements Layer {
 
+    protected boolean trainable = true;
+
     protected INDArray input;
     protected INDArray paramsFlattened;
     protected INDArray gradientsFlattened;
@@ -161,10 +163,10 @@ public abstract class BaseLayer<LayerConfT extends org.deeplearning4j.nn.conf.la
         Nd4j.gemm(input,delta,weightGrad,true,false,1.0,0.0);
         INDArray biasGrad = gradientViews.get(DefaultParamInitializer.BIAS_KEY);
         biasGrad.assign(delta.sum(0));  //TODO: do this without the assign
-
-        ret.gradientForVariable().put(DefaultParamInitializer.WEIGHT_KEY, weightGrad);
-        ret.gradientForVariable().put(DefaultParamInitializer.BIAS_KEY, biasGrad);
-        
+        if (this.getTrainableStatus()) {
+            ret.gradientForVariable().put(DefaultParamInitializer.WEIGHT_KEY, weightGrad);
+            ret.gradientForVariable().put(DefaultParamInitializer.BIAS_KEY, biasGrad);
+        }
         INDArray epsilonNext = params.get(DefaultParamInitializer.WEIGHT_KEY).mmul(delta.transpose()).transpose();
 
         return new Pair<>(ret,epsilonNext);
@@ -652,4 +654,17 @@ public abstract class BaseLayer<LayerConfT extends org.deeplearning4j.nn.conf.la
     public void setMaskArray(INDArray maskArray) {
         this.maskArray = maskArray;
     }
+
+    public void setUntainable() {
+        this.trainable = false;
+    }
+
+    public void setTrainable() {
+        this.trainable = true;
+    }
+
+    public boolean getTrainableStatus() {
+        return this.trainable;
+    }
+
 }

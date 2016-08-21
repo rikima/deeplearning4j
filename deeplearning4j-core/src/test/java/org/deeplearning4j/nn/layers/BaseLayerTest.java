@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by nyghtowl on 11/15/15.
@@ -93,6 +95,23 @@ public class BaseLayerTest {
         MultiLayerNetwork net = new MultiLayerNetwork(conf);
         net.init();
         return net;
+    }
+
+    @Test
+    public void testSetUntrainable() {
+        BaseLayer layer = (BaseLayer)configureSingleLayer();
+        assertTrue(layer.getTrainableStatus());
+        layer.setUntainable();
+        assertFalse(layer.getTrainableStatus());
+    }
+
+    @Test
+    public void testSetTrainable() {
+        BaseLayer layer = (BaseLayer)configureSingleLayer();
+        layer.setUntainable();
+        assertFalse(layer.getTrainableStatus());
+        layer.setTrainable();
+        assertTrue(layer.getTrainableStatus());
     }
 
 }
